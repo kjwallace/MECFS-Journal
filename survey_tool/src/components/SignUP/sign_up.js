@@ -24,4 +24,20 @@ const Signup = () => {
     navigate(redirectTo ? redirectTo : '/');
   }
 
-  const 
+  const onSubmut = async (event) => {
+    try {
+        const user = await emailPasswordSignUp(form.email, form.password);
+        if (user) {
+            redirectNow();
+        }
+    }
+    catch (error) {
+        alert (error);}
+    };
+
+    return (
+        // CSS Signup page here.
+    )
+
+
+export default Signup;
