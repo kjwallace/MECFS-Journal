@@ -1,27 +1,62 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { UserContext } from '../../contexts/user.context';
+import  {Link, useLocation, useNavigate} from 'react-router-dom';
+
+const Login = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
 
 
-const LoginPage = (onLogin) => {
-    const [loggedIn, setLoggedIn] = useState(false);
+const {user, fetchUser, emailPasswordLogin} = useContext(UserContext);
 
-    const handleLoginClick = () => {
-        // Placeholder for your actual login logic
-        //onLogin();
-        setLoggedIn(!loggedIn)
 
-        // Navigate to the home page after successful login
+const [form, setForm] = useState({
+  email: '',
+  password: '',
+});
 
-    };
+const onFormInputChange = (event) => {
+  const {name, value} = event.target;
+  setForm({...form, [name]: value});
+}
 
-    useEffect(() => {
-        // Update the document title using the browser API
-        console.log("Now:", loggedIn)
+//redirects when user successfully logs in 
+const redirectNow = () => {
+  const redirectTo = location.search.replace('?redirectTo=', '');
+  navigate(redirectTo ? redirectTo : '/');
+}
 
-        //Do shit here
-    }, [loggedIn])
+// tracks user is reloaded 
+const loadUser = async () => {
+  if (!user) {
+    const fetchedUser = await fetchUser();
+    if (fetchedUser) { redirectNow(); 
+    }
+  }
+}
+useEffect(() => {
+  loadUser();
+}, [setLoggedIn]); 
 
+const onSubmit = async (event) => {
+  try {
+    const user = await emailPasswordLogin(form.email, form.password);
+    if (user) {
+      redirectNow();
+    }
+  }
+  catch (error) {
+    if (error.statusCode === 401) {
+      alert('Invalid username or password');
+    
+  }
+  else { alert(error); }
+  }
+
+
+}
     return (
 
         <LoginForm>
