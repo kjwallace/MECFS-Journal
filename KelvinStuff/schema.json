@@ -1,0 +1,80 @@
+{"schema": {
+    "profile": {
+        "username": "string",
+        "timestamp": "string"
+    },
+    "responses_1" : {
+        "question_1" : {
+            "question" : "",
+            "rating": "int",
+            "response": "string"
+        },
+        "question_2" : {
+            "question" : "",
+            "rating": "int",
+            "response": "string"
+        },
+        "question_3" : {
+            "question" : "",
+            "rating": "int",
+            "response": "string"
+        },
+        "question_4" : {
+            "question" : "",
+            "rating": "int",
+            "response": "string"
+        }, 
+        "question_5" : {
+            "question" : "",
+            "rating": "int",
+            "response": "string"
+        }
+    },
+    "responses_2" : {
+        "question_1" : {
+            "question" : "",
+            "rating": "int",
+            "response": "string"
+        },
+        "question_2" : {
+            "question" : "",
+            "rating": "int",
+            "response": "string"
+        },
+        "question_3" : {
+            "question" : "",
+            "rating": "int",
+            "response": "string"
+        },
+        "question_4" : {
+            "question" : "",
+            "rating": "int",
+            "response": "string"
+        }, 
+        "question_5" : {
+            "question" : "",
+            "rating": "int",
+            "response": "string"
+        },
+        "question_6" : {
+            "question" : "",
+            "rating": "int",
+            "response": "string"
+        },
+        "question_7" : {
+            "question" : "",
+            "rating": "int",
+            "response": "string"
+        },
+        "question_8" : {
+            "question" : "",
+            "rating": "int",
+            "response": "string"
+        }
+    }
+
+}
+}
+{"feedback":{
+    "response": "string"
+}}

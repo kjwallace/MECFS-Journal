@@ -2,7 +2,7 @@ const paragraphs = {
     0: {
         Title: 'Introduction',
         SubTitle: 'Using the Symptom Severity Tracker',
-        Body: 'This tool is aimed at collecting data correlating characteristics such as: symptoms, feelings, habits, schedules, relationships, exterior factors, and anything else that may effect quality of life. The way this tool measures these characteristics is standard: A question will be asked with either a good/bad scale or symptom scale used in Chart A, and a textbox will be at the bottom of the page for you to record any thoughts that the test may have missed or not measured.',
+        Body: 'This tool is aimed at collecting data and characteristics of patient experience such as: symptoms, feelings, habits, schedules, relationships, exterior factors, and anything else that may effect quality of life. The way this tool measures these characteristics is standard: A question will be asked with either a good/bad scale or symptom scale used in Chart A, and a textbox will be at the bottom of the page for you to record any thoughts that the test may have missed or not measured.',
         SubTitle1: 'Chart A: Framework for Personalized Severity Assessment',
         Body1: 'Please take a look at the chart to the right of this paragraph. Take a minute to try and visualize the symptoms described - how do you feel you compare to the descriptions? A lot of people often incorrectly label themselves (ie are too negative, or too positive) and this often increases chances of misunderstanding the core issue. If you have a chance, have a close partner or peer whom you trust look at this chart, and help you when making your own comparisons.',
         SubTitle2: 'A Note from the Developers:',
