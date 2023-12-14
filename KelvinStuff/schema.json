@@ -3,78 +3,78 @@
         "username": "string",
         "timestamp": "string"
     },
-    "responses_1" : {
-        "question_1" : {
+    "ability" : {
+        "mobility" : {
+            "question" : "How would I describe the difficulty for myself to move around the house? Do I plan my next movement carefully as it is an event or is it something I do not even think about?",
+            "rating": "int",
+            "response": "string"
+        },
+        "social-public" : {
+            "question" : "How comfortable am I in public? Am I able to go and do my regular routine such as work, hangout with friends, or do hobbies?",
+            "rating": "int",
+            "response": "string"
+        },
+        "part-job-study" : {
+            "question" : "How would I describe the difficulty for myself to hold a part time job or study part time?",
+            "rating": "int",
+            "response": "string"
+        },
+        "full-job-study" : {
+            "question" : "How would I describe the difficulty for myself to hold a full time job or study full time?",
+            "rating": "int",
+            "response": "string"
+        }, 
+        "leave-bed" : {
+            "question" : "How would I describe the difficulty for myself to leave my bed?",
+            "rating": "int",
+            "response": "string"
+        }
+    },
+    "habits" : {
+        "sleep" : {
             "question" : "",
             "rating": "int",
             "response": "string"
         },
-        "question_2" : {
+        "eating" : {
             "question" : "",
             "rating": "int",
             "response": "string"
         },
-        "question_3" : {
+        "hydration" : {
             "question" : "",
             "rating": "int",
             "response": "string"
         },
-        "question_4" : {
+        "receational_drugs" : {
             "question" : "",
             "rating": "int",
             "response": "string"
         }, 
-        "question_5" : {
+        "urination" : {
+            "question" : "",
+            "rating": "int",
+            "response": "string"
+        },
+        "grades" : {
+            "question" : "",
+            "rating": "int",
+            "response": "string"
+        },
+        "relationships" : {
+            "question" : "",
+            "rating": "int",
+            "response": "string"
+        },
+        "improvement" : {
             "question" : "",
             "rating": "int",
             "response": "string"
         }
     },
-    "responses_2" : {
-        "question_1" : {
-            "question" : "",
-            "rating": "int",
-            "response": "string"
-        },
-        "question_2" : {
-            "question" : "",
-            "rating": "int",
-            "response": "string"
-        },
-        "question_3" : {
-            "question" : "",
-            "rating": "int",
-            "response": "string"
-        },
-        "question_4" : {
-            "question" : "",
-            "rating": "int",
-            "response": "string"
-        }, 
-        "question_5" : {
-            "question" : "",
-            "rating": "int",
-            "response": "string"
-        },
-        "question_6" : {
-            "question" : "",
-            "rating": "int",
-            "response": "string"
-        },
-        "question_7" : {
-            "question" : "",
-            "rating": "int",
-            "response": "string"
-        },
-        "question_8" : {
-            "question" : "",
-            "rating": "int",
-            "response": "string"
-        }
+    "feedback":{
+        "response": "string"
     }
 
 }
 }
-{"feedback":{
-    "response": "string"
-}}

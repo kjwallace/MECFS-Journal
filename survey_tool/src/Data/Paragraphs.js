@@ -12,34 +12,47 @@ const paragraphs = {
     1: {
         Title: 'Things I am Able to Do',
         SubTitle: 'Be Mobile and perform self care (showering, eating, ability to move through the house)',
+        //Alias: mobility
         Body: 'How would I describe the difficulty for myself to move around the house? Do I plan my next movement carefully as it is an "event" or is it something I do not even think about? ',
+        //alias: social-public
         SubTitle1: 'Participate in Social Activities / Public',
         Body1: 'How comfortable am I in public? Am I able to go and do my regular routine such as work, hangout with friends, or do hobbies?',
+        //alias: part-job-study
         SubTitle2: 'Hold a part time job, or study part time',
         Body2: 'How would I describe the difficulty for myself to hold a part time job or study part time?',
+        //alias: full-job-study
         SubTitle3: 'Hold a full time job, or study full time',
         Body3: 'How would I describe the difficulty for myself to hold a full time job or study full time?',
+        //alias: leave-bed
         SubTitle4: 'Leave my Bed',
         Body4: 'How would I describe the difficulty for myself to leave my bed?',
         
     },
     2: {
         Title: 'My Habits',
+        //alias: sleep
         SubTitle: 'How is my sleep schedule?',
         Body: 'Perfect -> I sleep and wake at the same times every day. Decent -> I sleep when it works best. Decently bad -> I sleep after completing what I need to do, but I procrastinated. Horrible -> I sleep when I crash',
+        //alias: eating
         SubTitle1: 'How is my eating schedule?',
         Body1: 'Perfect -> I sleep and wake at the same times every day. Decent -> I sleep when it works best. Decently bad -> I sleep after completing what I need to do, but I procrastinated. Horrible -> I sleep when I crash',
+        //alias: hydration
         SubTitle2: 'How is my water intake schedule?',
         Body2: 'Perfect -> I sleep and wake at the same times every day. Decent -> I sleep when it works best. Decently bad -> I sleep after completing what I need to do, but I procrastinated. Horrible -> I sleep when I crash',
+        //alias: recreational_drugs
         SubTitle3: 'How is my recreational drug use?',
         Body3: 'Perfect -> I sleep and wake at the same times every day. Decent -> I sleep when it works best. Decently bad -> I sleep after completing what I need to do, but I procrastinated. Horrible -> I sleep when I crash',
+        //alias: urination
         SubTitle4: 'How is my urination schedule?',
         Body4: 'Perfect -> (100% improvement if this is your first time). Decent -> I sleep when it works best. Decently bad -> I sleep after completing what I need to do, but I procrastinated. Horrible -> I sleep when I crash',
+        //alias: grades
         SubTitle5: 'How are my grades?',
         Body5: 'Perfect -> I sleep and wake at the same times every day. Decent -> I sleep when it works best. Decently bad -> I sleep after completing what I need to do, but I procrastinated. Horrible -> I sleep when I crash',
+        //alias: relationships
         SubTitle6: 'How are my relationsips?',
         Body6: 'Perfect -> I sleep and wake at the same times every day. Decent -> I sleep when it works best. Decently bad -> I sleep after completing what I need to do, but I procrastinated. Horrible -> I sleep when I crash',
-        SubTitle7: 'How is my general improvement from last time I took this form?',
+        //alias: imprqovement
+        SubTitle7: 'How do I feel compared to the last time I filled out this form?',
         Body7: 'Perfect -> (100% improvement if this is your first time). Decent -> I sleep when it works best. Decently bad -> I sleep after completing what I need to do, but I procrastinated. Horrible -> I sleep when I crash',
         
     },
