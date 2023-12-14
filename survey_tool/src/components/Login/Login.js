@@ -1,62 +1,69 @@
 import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { UserContext } from '../../contexts/user.context';
-import  {Link, useLocation, useNavigate} from 'react-router-dom';
+//import { UserContext } from '../../contexts/user.context';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-
-
-const {user, fetchUser, emailPasswordLogin} = useContext(UserContext);
-
-
-const [form, setForm] = useState({
-  email: '',
-  password: '',
-});
-
-const onFormInputChange = (event) => {
-  const {name, value} = event.target;
-  setForm({...form, [name]: value});
-}
-
-//redirects when user successfully logs in 
-const redirectNow = () => {
-  const redirectTo = location.search.replace('?redirectTo=', '');
-  navigate(redirectTo ? redirectTo : '/');
-}
-
-// tracks user is reloaded 
-const loadUser = async () => {
-  if (!user) {
-    const fetchedUser = await fetchUser();
-    if (fetchedUser) { redirectNow(); 
-    }
-  }
-}
-useEffect(() => {
-  loadUser();
-}, [setLoggedIn]); 
-
-const onSubmit = async (event) => {
-  try {
-    const user = await emailPasswordLogin(form.email, form.password);
-    if (user) {
-      redirectNow();
-    }
-  }
-  catch (error) {
-    if (error.statusCode === 401) {
-      alert('Invalid username or password');
+    const navigate = useNavigate();
+    const [email, setEmail] = useState('')
+    const [pass, setPass] = useState('')
     
-  }
-  else { alert(error); }
-  }
+    /*
+    const location = useLocation();
 
 
-}
+    const { user, fetchUser, emailPasswordLogin } = useContext(UserContext);
+
+
+    const [form, setForm] = useState({
+        email: '',
+        password: '',
+    });
+
+    const onFormInputChange = (event) => {
+        const { name, value } = event.target;
+        setForm({ ...form, [name]: value });
+    }
+
+    //redirects when user successfully logs in 
+    const redirectNow = () => {
+        const redirectTo = location.search.replace('?redirectTo=', '');
+        navigate(redirectTo ? redirectTo : '/');
+    }
+
+    // tracks user is reloaded 
+    const loadUser = async () => {
+        if (!user) {
+            const fetchedUser = await fetchUser();
+            if (fetchedUser) {
+                redirectNow();
+            }
+        }
+    }
+    
+    useEffect(() => {
+        loadUser();
+    }, [setLoggedIn]);
+
+    const onSubmit = async (event) => {
+        try {
+            const user = await emailPasswordLogin(form.email, form.password);
+            if (user) {
+                redirectNow();
+            }
+        }
+        catch (error) {
+            if (error.statusCode === 401) {
+                alert('Invalid username or password');
+
+            }
+            else { alert(error); }
+        }
+
+
+    }
+    */
     return (
 
         <LoginForm>
@@ -64,10 +71,11 @@ const onSubmit = async (event) => {
                 <Title>ME-CFS Symptom Journal</Title>
             </Row>
 
-            <Input placeholder="Username" />
-            <Input type="password" placeholder="Password" />
+            <Input type='email' placeholder="email" value={pass} /*onChange={onFormInputChange}*/ />
+            <Input type='password' placeholder="Password" value={pass} /*onChange={onFormInputChange}*/ />
+
             <Row>
-                <Button2 whileTap={{ scale: 0.95 }} whileHover={{ backgroundColor: '#FFF', color: '#820000' }} onClick={handleLoginClick}>Login</Button2>
+                <Button2 whileTap={{ scale: 0.95 }} whileHover={{ backgroundColor: '#FFF', color: '#820000' }} /*onClick={onSubmit}*/>Login</Button2>
                 <Button2 whileTap={{ scale: 0.95 }} whileHover={{ backgroundColor: '#FFF', color: '#820000' }} >Forgot Login</Button2>
             </Row>
 
@@ -149,4 +157,4 @@ const Button2 = styled(motion.button)`
   font-size: 1.5rem;
 `;
 
-export default LoginPage;
+export default Login;

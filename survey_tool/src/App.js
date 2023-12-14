@@ -3,18 +3,19 @@ import styled from 'styled-components';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import LoginPage from './components/Login/Login';
 import HomePage from './components/Home/Home';
+import './App.css'; 
 
 const Page = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  width: 97vw;
-  overflow-x: hidden;
-  padding-left: 1vw;
-  padding-right: 1vw;
+  width: 100vw;
 
-  background-color: #C0C0BF;
+  overflow-x: hidden;
+
+
+  background-color: #EAEAEA;
 `;
 
 function App() {
@@ -27,13 +28,13 @@ function App() {
 
   return (
     <Router>
-      <Page>
+      <div className='App'>
         <Routes>
-          <Route path='/' element={<LoginPage/>} />
-          <Route path='/loggedIN' element={<HomePage/>} />
+          <Route path='/loggedIN' element={<LoginPage/>} />
+          <Route path='/' element={<HomePage/>} />
           {/* Add more routes for other pages/components */}
         </Routes>
-      </Page>
+      </div>
     </Router>
   );
 }

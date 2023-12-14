@@ -1,6 +1,6 @@
-import { createContext, useState } from "react";
-import {App, Credentials} from "realm-web";
-import {APP_ID} from "../realm/constants";
+/*import { createContext, useState } from "react";
+import { App, Credentials } from "realm-web";
+import { APP_ID } from "../realm/constants";
 
 // create new realm app context
 const app = new App(APP_ID);
@@ -8,9 +8,9 @@ const app = new App(APP_ID);
 // export public userconet for access across pages 
 export const UserContext = createContext();
 
-export const UserProvider = ({children}) => {
-    
-    const [user, setUser] = useState(null)];
+export const UserProvider = ({ children }) => {
+
+    const [user, setUser] = useState(null);
 
     // login function
     const emailPasswordLogin = async (email, password) => {
@@ -42,6 +42,13 @@ export const UserProvider = ({children}) => {
             throw error;
         }
     };
+
+    return (
+        <UserContext.Provider value={{ user, setUser, fetchUser, logOutUser, emailPasswordLogin, emailPasswordSignUp }}>
+            {children}
+        </UserContext.Provider>
+    );
+
 };
 
 // logout function 
@@ -54,8 +61,7 @@ const logOutUser = async () => {
     } catch (error) {
         throw error;
     }
+    
 }
 
-return <UserContext.Provider value={{user, setUser, fetchUser, logOutUser, emailPasswordLogin, emailPasswordSignUp}}>
-    {children}  
-</UserContext.Provider>>    
+*/
