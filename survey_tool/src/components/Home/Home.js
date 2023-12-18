@@ -15,6 +15,8 @@ import AbleorNot from '../Pages/AbleorNot';
 import BodilyNeeds from '../Pages/BodilyNeeds';
 import Improvement from '../Pages/Improvement';
 
+import LoginPage from './../Login/Login';
+
 const LevelDescription = ({ descriptions }) => {
     return (
         <div>
@@ -25,11 +27,12 @@ const LevelDescription = ({ descriptions }) => {
     );
 };
 
+const LOGIN_PAGE = -1
 const FIRST_PAGE = 0
 const LAST_PAGE = 4
 const HomePage = () => {
 
-    const [page, setPage] = useState(0)
+    const [page, setPage] = useState(0) //-1
     const [goodBadScale, setGoodBadScale] = useState(['Perfect', 'Very Good', 'Decent', 'Mostly Good', 'Slightly Good', 'Slightly Bad', 'Mostly Bad', 'Decently Bad', 'Very Bad', 'Horrible'])
     const [EasyHard, setEasyHardScale] = useState(['No Problem', 'Easy', 'Annoying', 'Able To', 'Maybe Able To', 'Probably Not Able To', 'Mentally Not Able To', 'Physically Unable To', 'Would Hurt', 'Would Kill'])
 
@@ -46,61 +49,85 @@ const HomePage = () => {
         }
     }
 
-    //paragraphs['intro']
+    //paragraphs['intro'] <LoginPage/>
     return (
-        <OutsideContainer>
+        < OutsideContainer >
             <WelcomeMessage>Symptom Severity Tracker</WelcomeMessage>
-            <Container>
+            {page == -1 ? (
+                <LoginPage onLogin={next_page} />
+            ) : (
+                <ContainerIN2>
 
+                    {page != 0 ?
+                        (
+                            <PageButton onClick={past_page}>
+                                <ButtonImage src={LeftArrow} />
+                            </PageButton>
+                        ) : (
+                            <PageButtonPlaceHolder onClick={past_page}>
+                                <ButtonImage src={LeftArrow} />
+                            </PageButtonPlaceHolder>
+                        )
+                    }
 
-                <PageButton onClick={past_page}>
-                    <ButtonImage src={LeftArrow} />
-                </PageButton>
-
-                {page == 0 && (
-                    <InnerContainer>
-                        <TextBlock>
-                            <Title>{paragraphs[page]['Title']}</Title>
-                            <SubTitle>{paragraphs[page]['SubTitle']}</SubTitle>
-                            <Body>{paragraphs[page]['Body']}</Body>
-                            <SubTitle>{paragraphs[page]['SubTitle1']}</SubTitle>
-                            <Body>{paragraphs[page]['Body1']}</Body>
-                            <SubTitle>{paragraphs[page]['SubTitle2']}</SubTitle>
-                            <Body>{paragraphs[page]['Body2']}</Body>
-                        </TextBlock>
-                        <StyledImage src={chartPicture} />
-                    </InnerContainer>
-                )}
-                {page == 1 && (
-                    <InnerContainer>
-
-                        <AbleorNot paragraphs={paragraphs[1]} list={EasyHard}></AbleorNot>
-
-                    </InnerContainer>
-                )}
-                {page == 2 && (
-                    <InnerContainer>
-                        <BodilyNeeds paragraphs={paragraphs[2]} list={goodBadScale}></BodilyNeeds>
-                    </InnerContainer>
-                )}
-
-                {page == 3 && (
-                    <InnerContainer>
-
-                        <Improvement paragraphs={paragraphs[3]} list={EasyHard}></Improvement>
-
-                    </InnerContainer>
-                )}
-
-                <PageButton onClick={next_page}>
-                    <ButtonImage src={RightArrow} />
-                </PageButton>
+                    <Container>
 
 
 
+                        {page == 0 && (
+                            <InnerContainer>
+                                <TextBlock>
+                                    <Title>{paragraphs[page]['Title']}</Title>
+                                    <SubTitle>{paragraphs[page]['SubTitle']}</SubTitle>
+                                    <Body>{paragraphs[page]['Body']}</Body>
+                                    <SubTitle>{paragraphs[page]['SubTitle1']}</SubTitle>
+                                    <Body>{paragraphs[page]['Body1']}</Body>
+                                    <SubTitle>{paragraphs[page]['SubTitle2']}</SubTitle>
+                                    <Body>{paragraphs[page]['Body2']}</Body>
+                                </TextBlock>
+                                <StyledImage src={chartPicture} />
+                            </InnerContainer>
+                        )}
+                        {page == 1 && (
+                            <InnerContainer>
 
-            </Container>
-        </OutsideContainer>
+                                <AbleorNot paragraphs={paragraphs[1]} list={EasyHard}></AbleorNot>
+
+                            </InnerContainer>
+                        )}
+                        {page == 2 && (
+                            <InnerContainer>
+                                <BodilyNeeds paragraphs={paragraphs[2]} list={goodBadScale}></BodilyNeeds>
+                            </InnerContainer>
+                        )}
+
+                        {page == 3 && (
+                            <InnerContainer>
+
+                                <Improvement paragraphs={paragraphs[3]} list={EasyHard}></Improvement>
+
+                            </InnerContainer>
+                        )}
+
+
+                    </Container>
+
+                    {page != (LAST_PAGE - 1) ?
+                        (
+                            <PageButton onClick={next_page}>
+                                <ButtonImage src={RightArrow} />
+                            </PageButton>
+                        ) : (
+                            <PageButtonPlaceHolder onClick={past_page}>
+                                <ButtonImage src={LeftArrow} />
+                            </PageButtonPlaceHolder>
+                        )
+                    }
+
+                </ContainerIN2 >
+
+            )}
+        </OutsideContainer >
     );
 };
 
@@ -113,23 +140,25 @@ const fadeInOut = keyframes`
   }
 `;
 
+
 const OutsideContainer = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 
     text-align: center;
     width: 100vw;
     max-height: 100vh;
-    min-height: 100vh;
-    overflow-y: hidden;
+    height: 100vh;
+    min-height: 700px;
+    overflow: hidden;
     background-color:  #EAEAEA;
     padding: 0;
     margin: 0;
 `;
 
-const Container = styled.div`
+const ContainerIN2 = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -138,13 +167,30 @@ const Container = styled.div`
     text-align: center;
     width: 100%;
     max-height: 90vh;
+    min-height: 90vh;
     
-    
-
+    overflow-y: hidden;
     background-color:  #EAEAEA;
   
     padding: 0;
     margin: 0;
+`;
+
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    text-align: center;
+    width: 100%;
+    max-height: 90vh;
+    height: auto;
+
+    background-color:  transparent;
+
+    overflow-y: hidden;
+    overflow-x: hidden;
 `;
 
 const WelcomeMessage = styled.h1`
@@ -161,13 +207,13 @@ const InnerContainer = styled.div`
     animation: ${fadeInOut} 1s ease;  
 
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: start;
     align-items: center;
 
-    min-height: 90vh;
+    min-height: 100%;
     width: 100%;
-    height: auto;
+    max-height: auto;
 
     border: 3px solid #B83A4B;
     box-shadow: 0px 0px 0px 4px #820000;
@@ -176,7 +222,7 @@ const InnerContainer = styled.div`
     padding: 0;
     margin: 0;
     
-    overflow-y: auto;
+    
 `;
 
 const PageButton = styled.button`
@@ -197,6 +243,23 @@ const PageButton = styled.button`
     padding: 0;
 `;
 
+const PageButtonPlaceHolder = styled.button`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    width: 10vh;
+    height: 100%;
+    opacity: 0;
+    border: none;
+    
+    background-color:   transparent;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+`;
 
 const ButtonImage = styled.img`
     z-index: 2;
@@ -219,21 +282,21 @@ const ButtonImage = styled.img`
     }
 `;
 
-const TextBlock = styled.button`
+const TextBlock = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: start;
-    align-items: start;
+    align-items: center;
     text-align: left;
-    min-width: 50%;
-    max-width: 50%;
-    height: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
 
     border: none;
     
     background-color: transparent;
-    overflow-x: hidden;
-
+    overflow: auto;
+    padding-bottom: 2vh;
 `;
 
 
@@ -241,7 +304,7 @@ const TextBlock = styled.button`
 const Title = styled.div`
     font-family: 'Source Sans 3', sans-serif;
     font-size: 5rem;
-    width: auto;
+    width: 100%;
     
     min-height: 5vh;
     background: transparent;
