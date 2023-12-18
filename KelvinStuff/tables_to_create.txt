@@ -1,0 +1,18 @@
+This file contains the syntax and details for each table
+
+Table1: Patient Responses:
+
+CREATE TABLE UserResponses (
+    username VARCHAR(50) PRIMARY KEY,
+    timestamp TIME,
+    ability VARCHAR(50),
+    habits VARCHAR(50)
+);
+
+Table2: User Feedback
+
+CREATE TABLE Feedback (
+    username VARCHAR(50) PRIMARY KEY,
+    timestamp TIME,
+    feedback VARCHAR(50),
+)
